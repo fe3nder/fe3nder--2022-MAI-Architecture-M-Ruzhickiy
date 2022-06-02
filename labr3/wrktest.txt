@@ -1,0 +1,18 @@
+Running 1m test @ http://10.0.2.5/person?login=Ivan123&no_cache
+  10 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    11.84ms    4.81ms  59.15ms   74.90%
+    Req/Sec    85.56     13.50   141.00     57.65%
+  51262 requests in 1.00m, 11.15MB read
+Requests/sec:    853.02
+Transfer/sec:    189.95KB
+
+
+Running 1m test @ http://10.0.2.5/person?login=Ivan123
+  10 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    56.69ms  141.45ms 974.77ms   88.73%
+    Req/Sec   302.70    104.15   525.00     80.00%
+  148822 requests in 1.00m, 32.36MB read
+Requests/sec:   2477.07
+Transfer/sec:    551.55KB

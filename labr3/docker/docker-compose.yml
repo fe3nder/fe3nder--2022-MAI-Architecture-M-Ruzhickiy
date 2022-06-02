@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    ignite-node-1:
+        image: applem1support/ignite:2.12.0
+        container_name: ignite-node-1
+        ports:
+            - "10800:10800"
+
+    ignite-node-2:
+        image: applem1support/ignite:2.12.0
+        container_name: ignite-node-2
+        ports:
+             - "10900:10800"

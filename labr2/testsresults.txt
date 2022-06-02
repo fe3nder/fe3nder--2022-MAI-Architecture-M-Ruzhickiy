@@ -1,0 +1,30 @@
+[==========] Running 4 tests from 4 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from check_person_login
+[ RUN      ] check_person_login.person_table_set
+[       OK ] check_person_login.person_table_set (0 ms)
+[----------] 1 test from check_person_login (0 ms total)
+
+[----------] 1 test from create_new_person
+[ RUN      ] create_new_person.person_creation_set
+INSERT INTO Person (login,first_name,last_name,age) VALUES(?, ?, ?, ?) -- sharding:1
+inserted:0
+[       OK ] create_new_person.person_creation_set (12 ms)
+[----------] 1 test from create_new_person (12 ms total)
+
+[----------] 1 test from search_by_login
+[ RUN      ] search_by_login.basic_test_set
+SELECT id, login, first_name, last_name, age FROM Person where login LIKE ? -- sharding:1
+[       OK ] search_by_login.basic_test_set (3 ms)
+[----------] 1 test from search_by_login (3 ms total)
+
+[----------] 1 test from search_by_fn_ln
+[ RUN      ] search_by_fn_ln.basic_test_set
+SELECT id, login, first_name, last_name, age FROM Person where first_name LIKE ? and last_name LIKE ? -- sharding:0
+SELECT id, login, first_name, last_name, age FROM Person where first_name LIKE ? and last_name LIKE ? -- sharding:1
+[       OK ] search_by_fn_ln.basic_test_set (4 ms)
+[----------] 1 test from search_by_fn_ln (4 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 4 test suites ran. (19 ms total)
+[  PASSED  ] 4 tests.
